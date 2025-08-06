@@ -1,0 +1,42 @@
+# Base data
+numbers = [1, 2, 3, 4, 5, 6]
+words = ['apple', 'banana', 'kiwi', 'orange', 'grape', 'fig']
+
+print("Original Numbers:", numbers)
+print("Original Words:", words)
+
+# ---------------------------------------
+# Generator Comprehensions
+# ---------------------------------------
+
+# 1. Square of numbers (lazy evaluation)
+squares_gen = (x**2 for x in numbers)
+print("\n1. Squares (Generator):", list(squares_gen))
+
+# 2. Even numbers only
+evens_gen = (x for x in numbers if x % 2 == 0)
+print("2. Even Numbers (Generator):", list(evens_gen))
+
+# 3. Number with even/odd label
+labels_gen = ((x, 'even' if x % 2 == 0 else 'odd') for x in numbers)
+print("3. Number with Label (Generator):", list(labels_gen))
+
+# 4. Word lengths
+lengths_gen = (len(word) for word in words)
+print("4. Word Lengths (Generator):", list(lengths_gen))
+
+# 5. Uppercased words
+upper_gen = (word.upper() for word in words)
+print("5. Uppercased Words (Generator):", list(upper_gen))
+
+# 6. Words starting with a vowel
+vowel_start_gen = (word for word in words if word[0].lower() in 'aeiou')
+print("6. Words Starting with Vowel (Generator):", list(vowel_start_gen))
+
+# 7. Unique characters from all words (flattened)
+char_gen = (char for word in words for char in word)
+print("7. All Characters from Words (Generator):", list(char_gen))
+
+# 8. Word with its length (as a tuple)
+pair_gen = ((word, len(word)) for word in words)
+print("8. Word and Length (Generator):", list(pair_gen))
