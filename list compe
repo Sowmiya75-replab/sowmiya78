@@ -1,0 +1,53 @@
+# Base data
+numbers = [1, 2, 3, 4, 5, 6]
+words = ['apple', 'banana', 'kiwi', 'orange', 'grape', 'fig']
+
+print("Original Numbers:", numbers)
+print("Original Words:", words)
+
+# 1. Basic transformation: Squares
+squares = [x**2 for x in numbers]
+print("\n1. Squares:", squares)
+
+# 2. Filtering: Even numbers only
+evens = [x for x in numbers if x % 2 == 0]
+print("2. Even Numbers:", evens)
+
+# 3. If-else in expression: Label even/odd
+labels = ['even' if x % 2 == 0 else 'odd' for x in numbers]
+print("3. Even/Odd Labels:", labels)
+
+# 4. Nested loop: Coordinate pairs (i, j)
+pairs = [(i, j) for i in range(2) for j in range(3)]
+print("4. Coordinate Pairs (i,j):", pairs)
+
+# 5. Flatten a 2D list
+matrix = [[1, 2], [3, 4], [5, 6]]
+flattened = [item for row in matrix for item in row]
+print("5. Flattened Matrix:", flattened)
+
+# 6. Remove duplicates while preserving order
+data_with_duplicates = [1, 2, 2, 3, 1, 4, 4]
+unique = []
+[unique.append(x) for x in data_with_duplicates if x not in unique]
+print("6. Unique Elements (No Duplicates):", unique)
+
+# 7. Apply string methods: Uppercase words
+uppercase_words = [word.upper() for word in words]
+print("7. Uppercase Words:", uppercase_words)
+
+# 8. List of lengths
+word_lengths = [len(word) for word in words]
+print("8. Lengths of Words:", word_lengths)
+
+# 9. Create list of tuples: (number, square)
+num_square_pairs = [(x, x**2) for x in numbers]
+print("9. Number-Square Pairs:", num_square_pairs)
+
+# 10. Use range in comprehension: Cubes
+cubes = [x**3 for x in range(1, 6)]
+print("10. Cubes using range(1,6):", cubes)
+
+# 11. Condition on strings: Words starting with vowel
+vowel_words = [word for word in words if word[0].lower() in 'aeiou']
+print("11. Words Starting with Vowels:", vowel_words)
