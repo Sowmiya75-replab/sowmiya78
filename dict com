@@ -1,0 +1,45 @@
+# Base lists
+numbers = [1, 2, 3, 4, 5, 6]
+words = ['apple', 'banana', 'kiwi', 'orange', 'grape', 'fig']
+
+print("Original Numbers:", numbers)
+print("Original Words:", words)
+
+# ------------------------------
+# Dictionary Comprehensions
+# ------------------------------
+
+# 1. Number: Square mapping
+squares_dict = {x: x**2 for x in numbers}
+print("\n1. Squares Dictionary:", squares_dict)
+
+# 2. Number: Even/Odd label
+label_dict = {x: 'even' if x % 2 == 0 else 'odd' for x in numbers}
+print("2. Even/Odd Label Dictionary:", label_dict)
+
+# 3. Index: Word mapping
+index_word_dict = {i: word for i, word in enumerate(words)}
+print("3. Index → Word Dictionary:", index_word_dict)
+
+# 4. Word → Length
+length_dict = {word: len(word) for word in words}
+print("4. Word → Length Dictionary:", length_dict)
+
+# 5. Word → Uppercase
+uppercase_dict = {word: word.upper() for word in words}
+print("5. Word → Uppercase Dictionary:", uppercase_dict)
+
+# 6. First letter → list of words starting with it (basic grouping)
+first_letter_dict = {}
+for word in words:
+    first = word[0]
+    first_letter_dict.setdefault(first, []).append(word)
+print("6. First Letter → Words Dictionary:", first_letter_dict)
+
+# 7. Number → is it in squares list? (True/False flag)
+square_check_dict = {x: (x in squares_dict.values()) for x in numbers}
+print("7. Is Number a Square? Dictionary:", square_check_dict)
+
+# 8. Word → Characters as set
+char_dict = {word: {ch for ch in word} for word in words}
+print("8. Word → Set of Characters Dictionary:", char_dict)
