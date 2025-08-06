@@ -1,0 +1,56 @@
+nebula, quantum, saffron, echo, glyph, zenith, harbor
+
+# Get user input and split into a list
+data = input("Enter words separated by commas: ").strip().split(',')
+
+# Remove whitespace from each item
+data = [item.strip() for item in data if item.strip()]
+
+# List comprehensions
+lengths_list = [len(item) for item in data]
+upper_list = [item.upper() for item in data]
+reverse_list = [item[::-1] for item in data]
+filtered_list = [item for item in data if 'o' in item or 'u' in item]
+
+# Dictionary comprehensions
+index_dict = {i: item for i, item in enumerate(data)}
+length_dict = {item: len(item) for item in data}
+first_letter_dict = {item: item[0] for item in data}
+position_dict = {item: f"Word-{i}" for i, item in enumerate(data)}
+
+# Set comprehensions
+lengths_set = {len(item) for item in data}
+vowel_start_set = {item for item in data if item[0].lower() in 'aeiou'}
+unique_letters_set = {char for word in data for char in word if char.isalpha()}
+uppercase_set = {item.upper() for item in data}
+
+# Generator comprehensions
+lengths_gen = (len(item) for item in data)
+filtered_gen = (item for item in data if len(item) > 6)
+index_gen = ((i, item) for i, item in enumerate(data))
+pair_gen = (f"{item}-{len(item)}" for item in data)
+
+# Display results
+print("\nList Comprehensions:")
+print("Lengths:", lengths_list)
+print("Uppercased:", upper_list)
+print("Reversed:", reverse_list)
+print("Contains 'o' or 'u':", filtered_list)
+
+print("\nDictionary Comprehensions:")
+print("Index Map:", index_dict)
+print("Length Map:", length_dict)
+print("First Letter Map:", first_letter_dict)
+print("Position Labels:", position_dict)
+
+print("\nSet Comprehensions:")
+print("Word Lengths:", lengths_set)
+print("Starts with Vowel:", vowel_start_set)
+print("All Unique Letters:", unique_letters_set)
+print("Uppercased Set:", uppercase_set)
+
+print("\nGenerator Comprehensions:")
+print("Lengths:", list(lengths_gen))
+print("Filtered (len > 6):", list(filtered_gen))
+print("Index Pairs:", list(index_gen))
+print("Pairs (word-length):", list(pair_gen))
