@@ -1,0 +1,65 @@
+print("🍽️ Welcome to TasteBuds Catering Service 🍽️")
+
+menu = {
+    1: ("Veg Meal", 150),
+    2: ("Non-Veg Meal", 200),
+    3: ("Snacks Platter", 100),
+    4: ("Dessert Box", 80),
+    5: ("Drinks", 50)
+}
+
+order_summary = []
+total_cost = 0
+
+print("\n📋 Menu:")
+for key in menu:
+    print(f"{key}. {menu[key][0]} - ₹{menu[key][1]}")
+
+while True:
+    choice = int(input("\nEnter the item number to order: "))
+
+    if choice == 1:
+        item_name = menu[1][0]
+        item_price = menu[1][1]
+    elif choice == 2:
+        item_name = menu[2][0]
+        item_price = menu[2][1]
+    elif choice == 3:
+        item_name = menu[3][0]
+        item_price = menu[3][1]
+    elif choice == 4:
+        item_name = menu[4][0]
+        item_price = menu[4][1]
+    elif choice == 5:
+        item_name = menu[5][0]
+        item_price = menu[5][1]
+    else:
+        print("Invalid item number. Please select a valid menu item.")
+        continue
+
+    quantity = int(input(f"Enter quantity for {item_name}: "))
+
+    if quantity < 1:
+        print("Quantity must be at least 1.")
+        continue
+
+    item_total = item_price * quantity
+    total_cost += item_total
+    order_summary.append((item_name, quantity, item_total))
+
+    more = input("Do you want to order more items? (yes/no): ").strip().lower()
+
+    if more == "yes":
+        continue
+    elif more == "no":
+        break
+    else:
+        print("Invalid input. Ending order.")
+        break
+
+print("\n🧾 Order Summary:")
+for item in order_summary:
+    print(f"{item[0]} x {item[1]} = ₹{item[2]}")
+
+print(f"\nTotal Bill: ₹{total_cost}")
+print("\n🎉 Thank you for choosing TasteBuds Catering! 🎉")
