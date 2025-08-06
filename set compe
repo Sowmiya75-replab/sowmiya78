@@ -1,0 +1,65 @@
+# Base lists
+numbers = [1, 2, 3, 4, 5, 6]
+words = ['apple', 'banana', 'kiwi', 'orange', 'grape', 'fig']
+
+print("Original Numbers:", numbers)
+print("Original Words:", words)
+
+# -------------------------
+# Set Comprehensions
+# -------------------------
+
+# 1. Squares
+squares_set = {x**2 for x in numbers}
+print("\n1. Squares (Set):", squares_set)
+
+# 2. Even numbers
+evens_set = {x for x in numbers if x % 2 == 0}
+print("2. Even Numbers (Set):", evens_set)
+
+# 3. Word lengths
+word_lengths_set = {len(word) for word in words}
+print("3. Word Lengths (Set):", word_lengths_set)
+
+# 4. First letters of words
+first_letters_set = {word[0].lower() for word in words}
+print("4. First Letters (Set):", first_letters_set)
+
+# 5. Words starting with vowels
+vowel_words_set = {word for word in words if word[0].lower() in 'aeiou'}
+print("5. Words Starting with Vowels (Set):", vowel_words_set)
+
+# 6. Characters in all words
+char_set = {char for word in words for char in word}
+print("6. Unique Characters in Words (Set):", char_set)
+
+# 7. Uppercase words
+upper_words_set = {word.upper() for word in words}
+print("7. Uppercased Words (Set):", upper_words_set)
+
+# -------------------------
+# Set Operations via Set Comprehensions
+# -------------------------
+
+# A. Union (Evens ∪ Squares)
+union_set = {x for x in evens_set} | {x for x in squares_set}
+print("\nA. Union (Evens ∪ Squares):", union_set)
+
+# B. Intersection (Evens ∩ Squares)
+intersection_set = {x for x in evens_set if x in squares_set}
+print("B. Intersection (Evens ∩ Squares):", intersection_set)
+
+# C. Difference (Squares - Evens)
+difference_set = {x for x in squares_set if x not in evens_set}
+print("C. Difference (Squares - Evens):", difference_set)
+
+# D. Symmetric Difference (Evens △ Squares)
+symmetric_diff_set = {x for x in evens_set if x not in squares_set} | \
+                     {x for x in squares_set if x not in evens_set}
+print("D. Symmetric Difference (Evens △ Squares):", symmetric_diff_set)
+
+# E. Subset and Superset check (Manual via comprehension)
+is_subset = all(x in squares_set for x in evens_set)
+is_superset = all(x in evens_set for x in squares_set)
+print("E. Is Evens a subset of Squares?", is_subset)
+print("F. Is Evens a superset of Squares?", is_superset)
