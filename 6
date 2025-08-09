@@ -1,0 +1,42 @@
+# Linear Search
+def linear_search(arr, target):
+    for index, value in enumerate(arr):
+        if value == target:
+            return index
+    return -1
+
+
+# Binary Search
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+
+# User input
+numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+target = int(input("Enter the number to search for: "))
+
+# Ensure sorted for binary search
+sorted_numbers = sorted(numbers)
+
+print("\n--- Linear Search ---")
+linear_index = linear_search(numbers, target)
+if linear_index != -1:
+    print(f"Found at index {linear_index} in the original list")
+else:
+    print("Not found in the original list")
+
+print("\n--- Binary Search ---")
+binary_index = binary_search(sorted_numbers, target)
+if binary_index != -1:
+    print(f"Found at index {binary_index} in the sorted list {sorted_numbers}")
+else:
+    print(f"Not found in the sorted list {sorted_numbers}")
