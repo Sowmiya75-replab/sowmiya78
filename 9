@@ -1,0 +1,71 @@
+# Stack Implementation
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        return None
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        return None
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+
+# Queue Implementation
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        self.items.append(item)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.items.pop(0)
+        return None
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[0]
+        return None
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+
+# Example usage
+if __name__ == "__main__":
+    print("Stack Example:")
+    stack = Stack()
+    stack.push(5)
+    stack.push(10)
+    stack.push(15)
+    print("Stack size:", stack.size())
+    print("Stack top element:", stack.peek())
+    print("Popped:", stack.pop())
+    print("Stack size after pop:", stack.size())
+
+    print("\nQueue Example:")
+    queue = Queue()
+    queue.enqueue("A")
+    queue.enqueue("B")
+    queue.enqueue("C")
+    print("Queue size:", queue.size())
+    print("Front element:", queue.peek())
+    print("Dequeued:", queue.dequeue())
+    print("Queue size after dequeue:", queue.size())
